@@ -1,1 +1,11 @@
+github:
+    - is_project_page: false
+
+plugins:
+    - jekyll-feed
+
+name: sturmisch.github.io
+markdown: kramdown
+permalink: /post/:year/:month/:day/:title
+
 theme: jekyll-theme-hacker
