@@ -232,7 +232,7 @@ gef> heap bins unsorted
 ->  Chunk(addr=0x563b4f62f040, size=0x90, flags=PREV_INUSE)
 [+] Found 1 chunks in unsorted bin.
 ```
-Allocate a 0x40 size chunk, and next 0x40 chunk allocation will return our desired address from `top` (since last remainder chunk can't serve our request). Next and final part is quite frustrating, since I can hardly find any suitable place to land a chunk with. In the end, I chose to allocate a chunk near `_IO_2_1_stdin_`'s vtable, and overwrite it with heap ptr (also filling heap chunks with `one_gadget`s), next `scanf` will call \_\_GI\_\_\_uflow, which wii call \[vtable+0x28\], calling `one_gadget`.
+Allocate a 0x40 size chunk, and next 0x40 chunk allocation will return our desired address from `top` (since last remainder chunk can't serve our request). Next and final part is quite frustrating, since I can hardly find any suitable place to land a chunk with. In the end, I chose to allocate a chunk near `_IO_2_1_stdin_`'s vtable, and overwrite it with heap ptr (also filling heap chunks with `one_gadget`s), next `scanf` will call `__GI___uflow`, which will call \[vtable+0x28\], calling `one_gadget`.
 ```
 gef> tel $6
 0x00007f883fa2d988|+0x0000: 0x0000000000000000 -> allocated chunk
