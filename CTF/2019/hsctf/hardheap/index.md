@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [Pwn - 480] Aria Writer v3 (16 solves)
 ======
 
@@ -461,5 +460,3 @@ hsctf{you_sice_deets_so_well_you_must_be_suchet}$
 $ 
 [*] Closed connection to pwn.hsctf.com port 5555
 ```
-=======
->>>>>>> parent of 01fb463... minor link fix at ariav3 and added hardheap
