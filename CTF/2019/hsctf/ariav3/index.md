@@ -70,7 +70,7 @@ free(curr);
 
 
 
-In libc 2.26, tcache is introduced in order to optimize `malloc`'s allocation. Security check is not added, not until libc 2.29. We can treat chunk with size below 0x410 as fastbin (above, largebin). However, tcache can only store up to 7 heap chunks before reverting back to it's original fastbins and smallbins (same as 2.23). We're going to use [tcache poisoning](https://github.com/shellphish/how2heap/blob/master/glibc_2.26/tcache_poisoning.c) in order to leak libc address and [unsorted bin attack](https://github.com/shellphish/how2heap/blob/master/glibc_2.26/unsorted_bin_attack.c) to gain RCE.
+In libc 2.26, tcache is introduced in order to optimize `malloc`'s allocation. Security check is not added, not until libc 2.28. We can treat chunk with size below 0x410 as fastbin (above, largebin). However, tcache can only store up to 7 heap chunks before reverting back to it's original fastbins and smallbins (same as 2.23). We're going to use [tcache poisoning](https://github.com/shellphish/how2heap/blob/master/glibc_2.26/tcache_poisoning.c) in order to leak libc address and [unsorted bin attack](https://github.com/shellphish/how2heap/blob/master/glibc_2.26/unsorted_bin_attack.c) to gain RCE.
 
 
 
