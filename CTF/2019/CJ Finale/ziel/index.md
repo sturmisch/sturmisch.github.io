@@ -1,7 +1,7 @@
 [Pwn - 1000] ziel (0 solve)
 ======
 
-This challenge is solved **after** the competition. It's a shame that the author wasn't able to solve the challenge during it. Note that some pseudocode and gdb output are omitted for brevity sake.
+This challenge is solved **after** the competition. It's a shame that the I wasn't able to solve the challenge during it. Note that some pseudocode and gdb output are omitted for brevity sake.
 
 
 [zip file](https://sturmisch.github.io/assets/2019/CJ%20Finale/ziel/ziel.zip) containing docker files and binary. [Exploit](https://sturmisch.github.io/assets/2019/CJ%20Finale/ziel/exploit.py) here
@@ -149,7 +149,7 @@ def exploit():
 	spawn('x',19,0,0,0,0x88,'x'*8)
 	spawn('=',20,0,0,0,0x28,'='*8)
 ```
-The `?` and `x` chunk is the smallbins we want to coalesce. Author allocated different chunk sizes because author doesn't want to mess with heap layout.
+The `?` and `x` chunk is the smallbins we want to coalesce. I allocated different chunk sizes because I doesn't want to mess with heap layout.
 
 
 We proceed to fill the tcache, and free the chunk above the `x` chunk:
