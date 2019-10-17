@@ -63,7 +63,7 @@ Height: 10
 ```
 
 
-Basically, the spawn allocates a player chunk (as a char \* with maximum size of 200) with the following structure:
+Basically, the `spawn` function allocates a player chunk (as a char \* with maximum size of 200) with the following structure:
 ```C
 struct player
 {
@@ -149,7 +149,7 @@ def exploit():
 	spawn('x',19,0,0,0,0x88,'x'*8)
 	spawn('=',20,0,0,0,0x28,'='*8)
 ```
-The `?` and `x` chunk is the smallbins we want to coalesce. I allocated different chunk sizes because I doesn't want to mess with heap layout.
+The `?` and `x` chunk is the smallbins we want to coalesce. I allocated different chunk sizes because I don't want to mess with heap layout.
 
 
 We proceed to fill the tcache, and free the chunk above the `x` chunk:
